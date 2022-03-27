@@ -1,6 +1,8 @@
 # test_connect.py
 import paho.mqtt.client as mqtt
 
+HOME_ASSISTANT_IP = "172.16.16.107"
+
 # The callback function. It will be triggered when trying to connect to the MQTT broker
 # client is the client instance connected this time
 # userdata is users' information, usually empty. If it is needed, you can set it through user_data_set function.
@@ -15,5 +17,5 @@ def on_connect(client, userdata, flags, rc):
 
 client = mqtt.Client()
 client.on_connect = on_connect
-client.connect("broker.emqx.io", 1883, 60)
+client.connect(HOME_ASSISTANT_IP, 1883, 60)
 client.loop_forever()
